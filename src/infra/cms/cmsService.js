@@ -1,0 +1,25 @@
+export async function cmsService({ query }) {
+  try {
+    const pageContentResponse = await fetch('https://graphql.datocms.com/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.DATO_READONLY_API_TOKEN}`
+      },
+      body: JSON.stringify({
+        query
+      })
+    }).then(async (serverResponse) => {
+      const body = await serverResponse.json()
+      if (!body.errors) return body
+
+      throw new Error(JSON.stringify(body.errors))
+    })
+
+    return {
+      data: pageContentResponse.data
+    }
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
