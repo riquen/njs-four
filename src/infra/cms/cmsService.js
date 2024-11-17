@@ -20,7 +20,8 @@ export async function cmsService({
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.DATO_READONLY_API_TOKEN}`
+        // Authorization: `Bearer ${process.env.DATO_READONLY_API_TOKEN}`
+        Authorization: `Bearer 2f1811bcf5e4c0bc00f2e09c81b68a`
       },
       body: JSON.stringify({
         query
@@ -36,7 +37,8 @@ export async function cmsService({
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.DATO_READONLY_API_TOKEN}`
+        // Authorization: `Bearer ${process.env.DATO_READONLY_API_TOKEN}`
+        Authorization: `Bearer 2f1811bcf5e4c0bc00f2e09c81b68a`
       },
       body: JSON.stringify({
         query: globalQuery
